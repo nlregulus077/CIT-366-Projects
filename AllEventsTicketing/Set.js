@@ -32,18 +32,19 @@ function Set() {
             return null;
         }
 
-        for (var i = 0; i < listA.length; i++) {
-            var nextValue = listA[i];
+        var r1 = this.symmetricDifference(listA, listB);
 
-            for (var j = 0; j < listB.length; j++) {
-                if (listB[j] === nextValue){
-                    listB.splice(nextValue);
-                }
+        for (var i = 0; i < r1.length; i++) {
+            resultList.push(r1[i]);
 
-            }
-
-            resultList.push(listA[i], listB);
         }
+
+        var r2 = this.intersection(listA, listB);
+
+        for (var j = 0; j < r2.length; j++) {
+            resultList.push(r2[j]);
+        }
+
 
 
         return resultList;
@@ -93,15 +94,17 @@ function Set() {
             return null;
         }
 
-        for (var i = 0; i < listA.length; i++) {
-            var nextValue = listA[i];
+        var r1 = this.relativeComplement(listA, listB);
 
-            for (var j = 0; j < listB.length; j++) {
-                if (listB[j] === nextValue) {
-                    resultList.push(listB[j]);
-                    break;
-                }
-            }
+        for (var i = 0; i < r1.length; i++) {
+            resultList.push(r1[i]);
+
+        }
+
+        var r2 = this.relativeComplement(listB, listA);
+
+        for (var j = 0; j < r2.length; j++){
+            resultList.push(r2[j]);
         }
 
 
