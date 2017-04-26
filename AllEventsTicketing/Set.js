@@ -1,68 +1,110 @@
 function Set() {
 
 
-    this.intersection = function(listA, listB) {
-    
-	   var resultList = [];
+    this.intersection = function (listA, listB) {
 
-	   if (listA === null || listB === null) {
-	       return null;
-       }
+        var resultList = [];
 
-       for (var i = 0; i < listA.length; i++) {
-	       var nextValue = listA[i];
+        if (listA === null || listB === null) {
+            return null;
+        }
 
-	       for (var j = 0; j < listB.length; j++) {
-	           if (listB[j] === nextValue) {
-	               resultList.push(listB[j]);
-	               break;
-               }
-           }
-       }
+        for (var i = 0; i < listA.length; i++) {
+            var nextValue = listA[i];
 
-       
-	   return resultList;
-	}
+            for (var j = 0; j < listB.length; j++) {
+                if (listB[j] === nextValue) {
+                    resultList.push(listB[j]);
+                    break;
+                }
+            }
+        }
 
-    
-    
-	this.union = function(listA, listB) {
-
-	   var resultList = [];
-       
-	   /*-------------------------------Insert your code here -------------------------------------*/
-	   
-	   /*-------------------------------Insert your code here -------------------------------------*/ 
-	   
-	   return resultList;
-	}
+        return resultList;
+    }
 
 
+    this.union = function (listA, listB) {
+
+        var resultList = [];
+
+        if (listA === null || listB === null) {
+            return null;
+        }
+
+        for (var i = 0; i < listA.length; i++) {
+            var nextValue = listA[i];
+
+            for (var j = 0; j < listB.length; j++) {
+                if (listB[j] === nextValue){
+                    listB.splice(nextValue);
+                }
+
+            }
+
+            resultList.push(listA[i], listB);
+        }
 
 
-	this.relativeComplement = function(listA, listB) {
-
-	   var resultList = [];
-       
-	   /*-------------------------------Insert your code here -------------------------------------*/
-	   	   
-	   /*-------------------------------Insert your code here -------------------------------------*/
-       
-	   return resultList;
-	}
+        return resultList;
+    }
 
 
+    this.relativeComplement = function (listA, listB) {
 
-	this.symmetricDifference = function(listA, listB) {
+        var resultList = [];
 
-	   var resultList = [];
-       
-	   /*-------------------------------Insert your code here -------------------------------------*/
+        if (listA === null || listB === null) {
+            return null;
 
-	   /*-------------------------------Insert your code here -------------------------------------*/
-       
-	   return resultList;
-	}	
-	
+        }
 
+        for (var i = 0; i < listA.length; i++) {
+            var nextValue = listA[i];
+
+
+            for (var j = 0; j < listB.length; j++) {
+                    if (listB[j] === nextValue) {
+                        break;
+                    }
+
+
+
+            }
+
+            if (listB[j]!== nextValue){
+                resultList.push(listA[i]);
+            }
+
+
+
+        }
+
+        return resultList;
+    }
+
+
+    this.symmetricDifference = function (listA, listB) {
+
+        var resultList = [];
+
+
+        if (listA === null || listB === null) {
+            return null;
+        }
+
+        for (var i = 0; i < listA.length; i++) {
+            var nextValue = listA[i];
+
+            for (var j = 0; j < listB.length; j++) {
+                if (listB[j] === nextValue) {
+                    resultList.push(listB[j]);
+                    break;
+                }
+            }
+        }
+
+
+        return resultList;
+    }
 }
